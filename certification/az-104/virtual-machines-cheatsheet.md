@@ -61,3 +61,4 @@ Allows you to **manage and install OS updates and patches** for both *Windows* a
 - Update Management performs a scan for update compliance
 - A compliance scan is by default, performed **every 12 hours on *Windows*** and **every 3 hours on Linux**
 - Results can take **30 minutes to 6 hours** to display in the dashboard
+
