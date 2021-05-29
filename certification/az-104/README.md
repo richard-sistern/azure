@@ -6,6 +6,8 @@
 
 ## Cheat Sheets
 
+The following cheat sheets have been condesned into a [slide deck](https://richard-sistern.github.io/azure/certification/az-104/slides.html)
+
 - [Device Management](./device-management-cheatsheet.md)
 - [Roles](./azure-roles-cheatsheet.md)
 - [Policies](./azure-policies-cheatsheet.md)
