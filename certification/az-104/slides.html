@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Awesome Presentation</title>
+    <link href="favicon.png" rel="icon" type="image/png" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+        body {
+            font-family: 'Droid Serif';
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: normal;
+        }
+
+        .remark-code,
+        .remark-inline-code {
+            font-family: 'Ubuntu Mono';
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="source">
+
+class: center, middle
+
+# AZ-104 Cheat Sheets
+
+---
+
+# Azure Active Directory
+
+**Active Directory (AD)** is Microsoft's *identity and access management service*.
+
+**Azure Active Directory (Azure AD)** is Microsoft's cloud-based version of AD. *Identity as a Service (IDaaS)*.
+
+Azure AD versions:
+
+1. **Free** - MFA, SSO, Basic Security and Usage Reports, User Management
+2. **Office 365 Apps** - Company Branding, SLA, Two-Sync between On-Premise and Cloud
+3. **Premium 1 (P1)** - Hybrid Architecture, Advanced Group Access, *Conditional Access*
+4. **Premium 2 (P2)** - Identity Protection, Identity Governance
+
+Azure AD can *authorise* and *authenticate* to multiple sources:
+
+- On-premise AD via **Azure AD Connect**
+- Web applications via **App Registrations**
+- Allow login with IpD (e.g.. Facebook or Google) via **External Identities**
+- Office 365 or **Azure Microsoft**
+---
+
+A **tenant** *represents and organisation* in Azure AD. A tenant is a dedicated Azure AD Service instance which is
+automatically created when you sign up for either Microsoft Azure, Microsoft Intune, Microsoft 365.
+
+Each Azure AD tenant is distinct and separate from other Azure AD tenants.
+
+When performing a lift-and-shift of AD to Azure, not all AD features are supported and in that case you need to use AD
+DS. **Azure Active Directory Domain Services (AD DS)** provides managed domain services, such as:
+
+- Domain joins
+- Group polices
+- LDAP
+- Kerberos and NTLM authentication
+
+---
+
+**Azure AD Connect** provides the following:
+
+- **Password hash synchronisation** - sign-in method, synchronises a hash of users on-premise AD password with Azure AD
+- **Pass-through authentication** - sign-in method, allows users to use same password on premises and in the cloud
+- **Federation integration** - hybrid environment using an on-premises AD FS infrastructure, for certificate renewal
+- **Health monitoring** - monitors and provides a central location in the Azure portal to view activity
+
+Azure AD has two kinds of users:
+
+- **Users** - belongs to your organisation
+- **Guest Users** - belongs to another organisation
+---
+**Request to Join Groups**
+
+The group owner can let users find their own groups to join, instead of assigning the. The owner can set the group to
+automatically accept all users or require approval.
+
+The are **four ways** to *assign resource access rights* to users:
+
+- **Direct assignment** - The resource owner directly assigns the user to resource
+- **Group assignment** - The resource owner assigns an Azure AD group to the resource
+- **Rule-base assignment** - The resource owner creates a group and users a rule to define which users are assigned to a
+specific resource
+- **External authority assignment** - Access comes from an external source, such as an on-premises directory or a SaaS
+app
+
+---
+# Device Management Cheat Sheet
+
+**Device management** allows an organisation to manage laptops, desktops and phones that need access to cloud resources.
+Device management is found under **Azure Active Directory (Azure AD)**.
+
+The following join types are supported:
+
+**Azure Registered**
+
+- *Personally* owned devices
+- Signed in with a local or personal account
+- Windows 10, iOS, Android and MacOS
+
+**Azure AD Joined**
+
+- Devices owned by the organisation
+- Signed in with an organisational account
+- Access to devices that exist *only in the cloud* **(Cloud Native)**.
+- Windows 10, Server 2019
+---
+**Hybrid Azure AD Joined**
+
+- Devices owned by the organisation
+- Signed in with Active Directory Domain Services account owned by the organisation
+- Devices that exist in the cloud or *on-premise*
+- Windows 7, 8.1, 10, Server 2008 +
+
+**Mobile Device Management (MDM)**
+
+Control the entire device, can wipe data from it, and also reset it to factory settings
+
+**Mobile Application Management (MAM)**
+
+Publish, push, configure, secure, monitor, and update mobile apps for your users
+---
+# Azure Roles Cheat Sheet
+
+Role types:
+
+- **Classic subscription administrator roles** - the original (depreciated)
+- **Azure roles** - known as role-based access controls (RBAC), built on top of Azure Resource Manager
+- **Azure Active Directory (Azure AD) roles** - used to manage Azure AD resources in a directory
+
+**Identity Access Management (IAM)**
+
+Allows you to create and assign Azure (RBAC) roles to users.
+
+Roles restrict access to resource actions (known as operations). There are:
+
+- BuiltInRole - Manage Microsoft roles are read only and pre-created
+- CustomRole - Created by you with custom logic. Requires an *Azure AD Premium (P1 or P2)* license
+
+**Role assignment** is when a role is applied to a user. This comprises a security principal, role definition and scope.
+
+---
+The built in roles are:
+
+- Owner
+- Contributor - (unable to grant)
+- Reader
+- User Access Administrator (grant only)
+
+**Classic Administrators** have:
+
+- **Account administrator** - billing owner of subscription, no access to Azure portal
+- **Service administrator** - same access as user assigned the owner role at subscription scope. Full access to Azure
+portal
+- **Co-administrator** - same access as user assigned the owner role at the subscription scope
+
+**Important Azure AD Roles**
+
+- **Global Administrator** - full access to everything
+- User Administrator - full access to create and manage users
+- **Billing Administrator** - make purchases, manage subscriptions and support tickets
+---
+# Azure Policies
+
+**Azure Policy** enforces organisation standards and assesses **compliance** at-scale.
+
+Policies *do not restrict* access, they only observe for compliance.
+
+Once a policy is assigned it will evaluate for the compliance state periodically.
+
+The rules of a policy are described in a **policy definition** JSON file.
+
+A **policy initiative** is group of policy definitions.
+---
+# Azure Resource Manager
+
+**Azure Resource Manager (ARM)** is a service that allows you to *manage* Azure resources. It is a management layer that
+allows you to:
+
+- Create, update and delete resources
+- Apply management features like access controls, locks and tags
+- Write Infrastructure as Code (IaC) templates in JSON
+
+ARM is a service layer and **spans multiple features and services**. For example, Subscriptions, Management Groups,
+Resource Groups, Resource Providers, Resource Locks, Azure Blueprints, Resource Tags, access Control (IAM), Role-Based
+Access Controls (RBAC), Azure policies, ARM Templates.
+
+Think of Azure Resource Manager as a *gate keeper*. All *requests* flow through ARM and it deciders whether that request
+can be performed on a *resource*.
+---
+**Scope** is a **boundary of control** for Azure resources. It is a way to *govern* resources within a logical grouping
+and apply restrictions in the form of rules.
+
+- **Management Groups** are a logical grouping of multiple subscriptions
+- **Subscriptions** grant access to Azure services based on a billing and support agreement
+- **Resource Groups** represent a grouping of multiple resources
+- **Resources** are an Azure service, eg. VM
+
+An Azure account can have **multiple subscriptions** with the most common being Free Trial, Pay-As-You-Go and Azure for
+Students.
+
+**Resource Providers** are services within Azure. Some services are *registered* by default and others need to be
+explicitly registered.
+---
+**Resource Tags** are *key/value pairs* that you can assign to Azure resources.
+
+**Resource Locks** prevent accidental modification or deletion of resources at the subscription, resource group and
+resource scope level. The following locks are available:
+
+- **CanNotDelete** (Delete) - Authorised users can still read and modify a resource but are unable to delete the
+resource
+- **ReadOnly** (Read-only) - authorised users can read a resource but are unable to delete or update the resource
+
+**Blueprints** enable *quick creation* of **governed subscriptions**. Nearly everything you would wish to include in an
+Azure Blueprint deployment can be accomplished with an ARM template. Blueprints have a relationship between the
+definition (what should be deployed) and the assignment (what was deployed).
+---
+# ARM Templates
+
+**Infrastructure as Code (IaC)** is the process of *managing and provisioning* resources through machine-readable
+*definition files* (eg. JSON) rather than physical hardware or interactive configuration tools.
+
+These can be:
+
+- **Declarative** - define what you want, get exactly that
+- **Imperative** - define what you generally want, the service will guess the rest
+
+**ARM templates** are *JSON files that define Azure resources* you wish to provision and configure. They are declarative
+templates.
+---
+ARM template structure:
+
+- **$schema** describes the properties that are available within a template
+- **contentVersion** is a (user defined) version number for the template
+- **apiProfile** avoids having to specify API versions for each resource in the template
+- **parameters** are values you can pass to the template
+- **variables** are used to transform parameters or resource properties using function expressions
+- **functions** are user defined functions within the template
+- **resources** define the resources to deploy or update
+- **type** of the resource
+- **apiVersion** defines the version of the REST API to use, each resource providers publishes its own API versions
+- **name** of the resource
+- **location** defines the region where the resource will be deployed
+- **other properties** will vary per resource type
+- **outputs** are values that are returned after deployment, used to chain templates
+---
+# Storage Accounts 
+
+Azure storage services:
+
+- **Blob** - scalable *object store* for text and binary data. Supports big data analytics with Data Lake Storage Gen2
+- **Files** - managed *file shares* for cloud and on-premises deployments
+- **Queues** - schema less storage of structured data in a *NoSQL store*
+- **Tables** - *messaging store* for messaging between application components
+- **Disks** - *block level storage* volumes for Azure VMs
+---
+## Azure Blob Storage
+
+Provides **standard** (HDD) and **premium** (SSD) performance tiers. Standard access tiers:
+
+- Hot - frequent access, highest storage cost with lowest access cost
+- Cool - infrequent access, store > 30 days. Lower storage cost with higher access cost
+- Archive - rarely accessed, stored > 180 days. Lowest storage cost with highest access cost
+
+Blob types:
+
+- **Block** - stores text and binary data up to ~4.75TB
+- **Append** - optimised for append operations, ideal for logging data
+- **Page** - optimised for random access up to 8TB, stores virtual hard drive (VHD) files and serves Azure virtual
+machine disks
+---
+Tiering:
+
+- **Account level** - any blob that doesn't have an explicitly assigned tier infers its tier from the storage account
+- **Blob level** - able to upload a blob to a tier of your choosing. Changing of tiers happens instantly, except when
+moving out of archive
+
+**Rehydrating a blob** can take server hours when moving from archive to another tier
+
+**Blob lifecycle management**
+
+You can create rule-based polices to transition data to different tiers. When a blob is moved to another tier it is
+charged at the new tiers rate *immediately*.
+
+Moving to a **cooler tier**:
+
+- Operation billed as a *write operation* to the destination tier
+- When the *write operation* (per 10,000) and data write (per GB) charges of the destination tier apply
+---
+Moving to a **hotter tier**:
+
+- Operation billed as a read from the source tier
+- When the *read operation* (per 10,000) and data retrieval (per GB) charges of the source tier apply
+- Early deletion charges for any blob moved out of cool or archive tiers may also apply
+
+**Early deletion** (cool and archive tiers) charges may apply:
+
+- Cool tier (GPv2 only) has an early deletion period of 30 days
+- Archive tier has an early deletion period of 180 days. The charge is prorated.
+---
+**Replication Types**
+
+**Primary Region Redundancy** (disaster recovery and failovers)
+
+- Locally Redundant Storage (LRS)
+- Copies data synchronously in primary region
+- Cheapest option
+- Zone-redundant storage (ZRS)
+- Copies data synchronously *across 3 AZs* in primary region
+
+**Secondary Region Redundancy** (disaster recovery and failovers)
+
+- Geo redundant storage (GRS)
+- Copes data synchronously in primary region
+- Copies data asynchronously to another region
+- Geo-zone redundant storage (GZRS)
+- Copies data synchronously *across 3 AZs* in primary region
+- Copies data asynchronously to another region
+---
+Secondary Region **Redundancy with Read Access** (Read Replicas)
+
+- Read-access geo-redundant storage (RA-GRS)
+- Copes data synchronously in primary region
+- Copes data synchronously to another region
+- Read-access geo-redundant storage (RA-GZRS)
+- Copes data synchronously in primary region
+- Copes data synchronously to another region
+---
+## Azure Files
+
+Azure Files is a fully managed *file share* in the cloud which can be mounted on a file system using SMB or NFS.
+
+A file share can be backed up using *shared snapshots*, these are:
+
+- Read-only and incremental with up to *200 snapshots* per file share. Backups can be retained for *up to 10 years*
+- Backups are stored within the file share. If the share is removed, so are the backups
+
+**Soft delete** prevents accidental deletion by retaining the data for a period of time before the final delete occurs.
+---
+**Storage Tiers**
+
+- **Premium** - SSD with single-digit millisecond IO
+- **Transaction optimised (standard)** - HDD for transaction heavy workloads which down require the low latency of
+Premium
+- **Hot** - optimised for general purpose file sharing such as *team shares* and *Azure File Sync*
+- **Cool** - HHD for cost-efficient online archive storage
+
+**Storage Types**
+
+- **General purpose version 2 (GPv2)** - HDD
+- **FileStorage** - SSD
+
+Identity can be managed with **on-premise**,**AD DS** or **Store Account Key** (account name/key)
+
+Azure Files can be accessed anywhere via the storage account *public endpoint*.
+---
+**Encryption**
+
+- Encrypted at rest using *Azure Storage Service Encryption (SSE)*
+- **Encrypted in transit** with *SMB 3.0+ with encryption* or *HTTPS*
+
+**Azure File Sync** is a service that caches Azure file shares on either *on-premise* Windows servers or *cloud* VMs
+---
+## **Uploading Data**
+
+Methods to move data into Azure blob/file storage:
+
+- **AzCopy** - command line tool
+- **Azure Storage Data Movement library** - .NET library (backed by AzCopy)
+- **Azure Data Factory** - ETL service
+- **Blobfuse** - Linux file system driver
+- **Azure Data Box** - physical transport of box of HDD
+- **Azure Import/Export service** - own or Microsoft disks
+---
+**Azure Import/Export Service**
+
+Can use own drives or Microsoft provided. Microsoft ships up to 5 encrypted SSDs (**Azure Data Box Disk**) with a 40 TB
+total capacity per order.
+
+Drives are prepared with the **WAImportExport (64-bit Windows only) tool**:
+
+- Prepare your disk drives that are shipped for import
+- Copying data to the drives
+- Encryption of data with AES 256-bit BitLocker
+- Generating journal files which are used during import
+- Identifying the number of drives required for export jobs
+---
+The tool comes in two versions:
+
+- **Version 1** for import/export into Azure Blob storage
+- **Version 2** for import into Azure **files**
+
+With export jobs:
+
+- You can only export from Azure Blob
+- You can ship up to 10 empty drives to Azure per job
+- You create an export job and the data is loaded onto those drives and shipped back to you
+---
+## Shared Access Signature (SAS)
+
+Proves are URL that grants restricted access rights to **Azure Storage** resources.
+
+**Account level SAS**
+
+- Access to resources in *one or more* storage services
+
+**Service level SAS**
+
+- Access to single storage account using the account key
+
+**User delegation SAS (best practise)**
+
+- Access to storage account using Azure AD credentials
+- Limited only to Blob and Containers
+---
+A shared access signature comes in the following formats:
+
+**Ad hoc SAS**
+
+- Start, expiry times and permissions are part of the URI
+- Any type of SAS can be an ad hoc SAS
+
+**Service SAS with stored access policy**
+
+- Stored access policy is defined on a resource container (limited to blob, table, queue or file share)
+- Stored access policy can be associated to multiple SAS to manage constraints
+
+---
+
+# Virtual Machines
+
+**Azure Virtual machines (VMs)** allow you to create Linux and Windows virtual machines. These are billed at an **hourly
+rate**.
+
+The **size** of the virtual machine is determined by the image:
+- vCPUs
+- Memory
+- Storage Capacity
+
+A variety of sizes are available, there are geared towards specific use cases:
+- General Purpose
+- Compute Optimised
+- Memory Optimise
+- Storage Optimised
+- GPU
+- High Performance Compute
+---
+There is currently a limit of **20 VMs** per **region** in a **subscription**
+
+A single VM has an availability of 99.9% (using premium disks only)
+
+Two VMs in an *Availability Set* provide 99.95% availability
+
+When you *launch* an Azure Virtual machine other networking components will either be created or associated to the VM:
+
+- Network Security Group (NSG)
+- Network Interface (NIC)
+- Public IP Address
+- VNet
+---
+You can *bring your own Linux* by creating a Linux Virtual Hard Disk (VHD)
+
+The **Azure Compute Unit (ACU)** provides a way of comparing CPU performance across Azure VM sizes. The ACU is currently
+based on a **Small (Standard_A1)** which is given a value of *100*. All other sizes then represent approximately how
+much faster they run a standard benchmark.
+
+VMs can be managed by the **Azure Mobile App**
+---
+## Connection
+
+There are *3 ways* to connect to Azure Virtual Machines
+
+### Secure Shell (SSH)
+- Requires *port 22* via TCP
+- RSA Key Pairs are commonly used to authorise access
+
+### Remote Desktop Protocol (RDP)
+- Allows remote connection to Windows machines
+- Requires *port 3389* via TCP and UDP
+
+### Azure Bastion
+An Azure service you deploy which allows connection to virtual machines in a browser from the Azure portal. Supports
+both SSH and RDP.
+---
+## Update Management
+Allows you to **manage and install OS updates and patches** for both *Windows* and *Linux* machines in Azure, on-premise
+and other cloud providers.
+
+- Update Management performs a scan for update compliance
+- A compliance scan is by default, performed **every 12 hours on *Windows*** and **every 3 hours on Linux**
+- Results can take **30 minutes to 6 hours** to display in the dashboard
+
+---
+
+# Azure Disks Cheat Sheet
+**Azure Managed Disks** are *block-level storage* and used with Azure VMs
+
+- Managed disks have *99.999%* availability. Azure creates *three replicas* of a disk.
+- You can create up to 50,000 disks in a subscription per region.
+- You can create up to 1,000 VMs in a virtual machine scale set.
+- Managed disks are integrated with **availability sets**
+- Managed disks support **availability zones**
+- You can use **Azure Role Based Access Control (RBAC)** to assign specific permissions for a managed disk to users and
+groups
+- Virtual hard drive disks (VHD) can be **directly imported** into Azure disks
+- **Azure Private Links** can be used to ensure traffic between Azure Disks and VMs stays within the Microsoft network
+
+---
+
+- **Azure Managed Disks** support the following encryption:
+- Server Side Encryption (SSE)
+- *Enabled by default* for all managed disks, snapshots, and images
+- Temporary disks are *not encrypted* by SSE unless you enable encryption at host
+- Keys can be managed within Azure (platform) or customer managed
+- Azure Disk Encryption (ADE)
+- Encrypts the **OS and Data disks** within an IaaS Virtual Machine
+- On Windows, this uses **BitLocker**
+- On Linux, this uses **DM-Crypt**
+
+---
+
+## Roles
+
+There are 3 main disk roles in Azure, the **data disk**, the **OS disk** and the **temporary disk**
+
+**Data Disk**
+- Managed disk attached to a virtual machine to store application or other data
+- Registered as a SCSI drive and labelled how you choose
+- Maximum capacity of 32 GB
+- The VM size determines the number of data disks you can attach and the type of storage available
+
+**OS Disk**
+- One attached to every VM
+- Has a pre-installed OS, which is selected when the VM is created
+- Contains the boot volume
+- Maximum capacity of 4 GB
+
+---
+
+**Temporary Disk**
+- Used by most VMs, not a managed disk
+- Provide short-term storage for applications and processes, and is intended to only store data such as page or swap
+files
+- Data may be lost during a maintenance event or when you redeploy a VM
+- Data persists during a standard reboot of the VM
+- Typically mounted to /dev/sdb on Linux and D on Windows
+- Not encrypted by SSE unless encrypt at host is enabled
+---
+## Backup
+
+**Azure backup** can be used with schedules and backup retention polices
+
+To backup single disks, use a *managed disk snapshot*. For multiple disks, use a *managed custom disk*
+
+A **managed disk snapshot** is a *read-only crash-consistent full copy of a managed disk* that is stored as a standard
+managed disk by default. Snapshots:
+- Are point in time recovery
+- Exist independent of the source disk and can be used to create new managed disks
+- Billed based on used size of the drive
+- Usage size can be found in the Azure usage report
+
+A **managed custom image** creates an image containing **all managed disks** associated with a VM
+---
+## Tiers
+
+**Ultra Disks** (high throughput, I/OPs and consistent low latency)
+- able to dynamically change performance, without a VM restart
+- can only been used as *data disks*
+
+**Premium SSD** (high performance and low latency)
+- can only be used with a VM sizes that are premium storage compatible
+- guaranteed IOPS
+- meets low single digit ms latency with target IOPS/throughput 99.9% of the time
+
+**Standard SSD** (cost effective, consistent performance at lower IOPS levels)
+- no guaranteed IOPS
+- available on all Azure VMs
+
+**Standard HDD** (lowest cost for latency insensitive workloads)
+- no guaranteed IOPS
+- available on all Azure VMs
+
+---
+
+# Application Gateway Cheat Sheet
+
+**Azure Application Gateway** is an *application-level routing* and *load balancing* service which operates on **OSI
+Layer 7** (application layer).
+
+**Azure Web Application Firewall (WAF)** policies can be attached to an Application Gateway to provide additional
+security.
+
+An Application Gateway comprises:
+- **Frontends** with a choice of address type:
+- **Private IP** (internal load balancer)
+- **Public IP** (public/external load balancer)
+- **Backends** (pools)
+- Collection of resources where your application gateway sends traffic
+- Can contain, VMs, VM scale sets, IP addresses, domain names, App Service
+- **Routing Rules** which are composed of **Listeners, Backend targets, HTTP settings**
+- **Listeners** listen to on a specific port and IP address for traffic that uses a specified protocol
+
+---
+
+- If criteria are met, the application gateway will apply this routing rile
+- **Basic** listeners forward all requests for any domain to backend pools
+- **Multi-site** listeners forward requests to different backend pools based on *host header* and *host name*
+- Requests are matched according to the **order of the rules** and type of listener. Add basic listeners last, otherwise
+it will capture all requests
+- **Backend targets** choose where a route should go, either **Backend Pool** or **Redirection**
+- To create a rule for Backend Pool, you need to create an **HTTP Setting**
+- HTTP Settings define how to handle cookies, connection draining, port request time out, etc.
+
+---
+
+# Scale Sets 
+
+Azure Scale Sets allow you to **automatically** *increase* or *decrease* VM capacity. Often associated with a **Load
+Balancer** to:
+
+- Evenly distribute across multiple Availability Zones
+- Use probe checks for more robust health checks
+
+The following load balancers can be used:
+
+- **Application Gateway** is an **HTTP/HTTPS** web traffic load balancer and application firewall
+- **Azure Load Balancer** supports **TCP/UDP** traffic, port-forwarding and outbound flows
+
+---
+
+A **Scaling Policy** determines when a VM should be added or removed
+
+- **Scale Out** *adds* an instance to the scale set to *increase* capacity
+- **Scale In** *removes* an instance from the scale set to *decrease* capacity
+
+**Scale-In Policy** determines how a VM is removed (deleted) to decrease capacity
+
+- **Default** - delete the VM with the highest instance ID, balanced across Availably Zones (AZs) and Fault Domains
+(ADs)
+- **Newest VM** - balanced across Availably Zones (AZs)
+- **Oldest VM** - balanced across Availably Zones (AZs)
+
+---
+
+**Update Policy** determines how VM instances are brought up-to-date with the latest scale set model
+
+- **Automatic** - start upgrading immediately in random order
+- **Manual** - existing instances must be manually upgraded
+- **Rolling** - upgrades roll out in batches with optional pause
+
+**Health monitoring** determines if a service is *healthy* or *unhealthy*
+
+- **Application health extension** requests a page over HTTP and expects a status of 200
+- **Load balancer probe** checks based on TCP, UDP or HTTP requests
+
+**Automatic repair policy** - if an instance is unhealthy then delete and launch a new instance
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        var slideshow = remark.create();
+    </script>
+</body>
+
+</html>
