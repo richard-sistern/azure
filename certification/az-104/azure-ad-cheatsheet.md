@@ -4,8 +4,6 @@
 
 **Azure Active Directory (Azure AD)** is Microsoft's clod-based version of AD. *Identity as a Service (IDaaS)*.
 
-
-
 Azure AD versions:
 
 1. **Free** - MFA, SSO, Basic Security and Usage Reports, User Management
@@ -13,16 +11,12 @@ Azure AD versions:
 3. **Premium 1 (P1)** - Hybrid Architecture, Advanced Group Access, *Conditional Access* 
 4. **Premium 2 (P2)** - Identity Protection, Identity Governance
 
-
-
 Azure AD can *authorise* and *authenticate* to multiple sources:
 
 - On-premise AD via **Azure AD Connect**
 - Web applications via **App Registrations**
 - Allow login with IpD (e.g.. Facebook or Google) via **External Identities**
 - Office 365 or **Azure Microsoft**
-
-
 
 A **tenant** *represents and organisation* in Azure AD. A tenant is a dedicated Azure AD Service instance which is automatically created when you sign up for either Microsoft Azure, Microsoft Intune, Microsoft 365.
 
