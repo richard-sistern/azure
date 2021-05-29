@@ -2,7 +2,7 @@
 
 **Active Directory (AD)** is Microsoft's *identity and access management service*.
 
-**Azure Active Directory (Azure AD)** is Microsoft's clod-based version of AD. *Identity as a Service (IDaaS)*.
+**Azure Active Directory (Azure AD)** is Microsoft's cloud-based version of AD. *Identity as a Service (IDaaS)*.
 
 Azure AD versions:
 
