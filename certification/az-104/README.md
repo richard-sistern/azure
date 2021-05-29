@@ -1,4 +1,4 @@
-# Azure Administrator (./AZ-104)
+# Azure Administrator (AZ-104)
 
 ## Tutorial
 
