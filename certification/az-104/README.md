@@ -1,10 +1,12 @@
-# Azure Administrator (./AZ-104)
+# Azure Administrator (AZ-104)
 
 ## Tutorial
 
 - FreeCodeCamp has a [full-length video tutorial](https://www.freecodecamp.org/news/azure-administrator-certification-az-104-pass-the-exam-with-this-free-11-hour-course/) on the AZ-104 exam 
 
 ## Cheat Sheets
+
+The following cheat sheets have been condesned into a [slide deck](https://richard-sistern.github.io/azure/certification/az-104/slides.html)
 
 - [Device Management](./device-management-cheatsheet.md)
 - [Roles](./azure-roles-cheatsheet.md)
