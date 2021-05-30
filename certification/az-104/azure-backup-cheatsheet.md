@@ -24,7 +24,7 @@
 
 Microsoft Azure Recovery Services (MARS) agent backs up *files*, *folders* and *system state* from Windows *on-premise* machines and *Azure VMs*
 
-- Backups are stores in a Recovery Services vault in Azure
-- The MARS agent is also knows as the Azure Backup agent
+- Backups are stored in a Recovery Services vault in Azure
+- The MARS agent is also known as the Azure Backup agent
 - The MARS agent does not support Linux operating systems
 - **Azure Site Recovery (ASR)** his a *hybrid* (on-premise to cloud) backup solution for **site-to-site recovery**
