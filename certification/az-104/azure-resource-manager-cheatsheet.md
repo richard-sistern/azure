@@ -8,7 +8,7 @@
 
 ARM is a service layer and **spans multiple features and services**.  For example, Subscriptions, Management Groups, Resource Groups, Resource Providers, Resource Locks, Azure Blueprints, Resource Tags, access Control (IAM), Role-Based Access Controls (RBAC), Azure policies, ARM Templates.
 
-Think of Azure Resource Manager as a *gate keeper*.  All *requests* flow through ARM and it deciders whether that request can be performed on a *resource*.
+Think of Azure Resource Manager as a *gate keeper*.  All *requests* flow through ARM and it decides whether that request can be performed on a *resource*.
 
 **Scope** is a **boundary of control** for Azure resources.  It is a way to *govern* resources within a logical grouping and apply restrictions in the form of rules.
 
