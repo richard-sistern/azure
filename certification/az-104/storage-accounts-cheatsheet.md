@@ -91,7 +91,7 @@ A file share can be backed up using *shared snapshots*, these are:
 **Storage Tiers**
 
 - **Premium** - SSD with single-digit millisecond IO
-- **Transaction optimised (standard)** - HDD for transaction heavy workloads which down require the low latency of Premium
+- **Transaction optimised (standard)** - HDD for transaction heavy workloads which don't require the low latency of Premium
 - **Hot** - optimised for general purpose file sharing such as *team shares* and *Azure File Sync*
 - **Cool** - HHD for cost-efficient online archive storage
 
