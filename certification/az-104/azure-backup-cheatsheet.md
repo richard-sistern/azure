@@ -8,7 +8,7 @@
 - Backs up VMs
 - Scales easily
 - Provides unlimited data transfer (no limit and no charge)
-- Built in security at test and in transit
+- Built in security at rest and in transit
 - Centralised monitoring and management
 - App consistent backups 
 - Automatic storage management
