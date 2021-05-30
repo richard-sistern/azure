@@ -14,7 +14,7 @@ An Application Gateway comprises:
   - Can contain, VMs, VM scale sets, IP addresses, domain names, App Service
 - **Routing Rules** which are composed of **Listeners, Backend targets, HTTP settings**
   - **Listeners** listen to on a specific port and IP address for traffic that uses a specified protocol
-    - If criteria are met, the application gateway will apply this routing rile
+    - If criteria are met, the application gateway will apply this routing rule
     - **Basic** listeners forward all requests for any domain to backend pools
     - **Multi-site** listeners forward requests to different backend pools based on *host header* and *host name*
     - Requests are matched according to the **order of the rules** and type of listener.  Add basic listeners last, otherwise it will capture all requests
