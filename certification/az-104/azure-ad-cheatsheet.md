@@ -43,7 +43,7 @@ Azure AD has two kinds of users:
 
 **Request to Join Groups**
 
-The group owner can let users find their own groups to join, instead of assigning the.  The owner can set the group to automatically accept all users or require approval.
+The group owner can let users find their own groups to join, instead of assigning them.  The owner can set the group to automatically accept all users or require approval.
 
 The are **four ways** to *assign resource access rights* to users:
 
