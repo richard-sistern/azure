@@ -18,7 +18,7 @@
 - Azure automatically creates a route table with default routes (system routes) and associates them to subnets
 - The *system routes* can be overridden by creating a new route table and associating it with a subnet
 
-**Address Space** denotes *a range of available IP address* that are allocated to using within a vNet.  The amount of addresses available is determined by the CIDE notation.
+**Address Space** denotes *a range of available IP address* that are allocated to using within a vNet.  The amount of addresses available is determined by the CIDR notation.
 
 **Subnet** is a *logical division of an address space*
 
@@ -30,7 +30,7 @@
 
 **Azure Private Links** provides a *secure connection* between Azure resources so traffic *remains within the Azure Network*.
 
-- **Private Link Endpoint** is a *network interface* that connects to a service powered by Azure Private Link.  This uses a private IP address from you vNet
+- **Private Link Endpoint** is a *network interface* that connects to a service powered by Azure Private Link.  This uses a private IP address from your vNet
 - **Private Link Service** allows you own workloads to connect to a private link.  This requires an *Azure Standard Internal Load Balancer* to be associated with the link service
 - Many Azure services (Storage, CosmoDB, SQL) can work with private link and also third party providers
 
