@@ -6,7 +6,7 @@
 
 Containers
 
-- can be previsioned *within seconds*
+- can be provisioned *within seconds*
 - are *billed per second*
 - have *granular and custom sizing of vCPUs, Memory and GPUs*
 - be *Linux* or *Windows*
