@@ -10,7 +10,7 @@ The **Azure App Service** is a Platform as a Service (PaaS) which provides **HTT
 - Custom domains
 - Attaching TLS/SSL certificates
 
-Pay based n the Azure App **Service Plan**:
+Pay based on the Azure App **Service Plan**:
 
 - **Shared Tier** - Free, Shared (**Linux not supported**)
 - **Dedicated Tier** - Basic, Standard, Premium, Premium V2, Premium (V3)
