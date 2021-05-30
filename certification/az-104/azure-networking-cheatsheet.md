@@ -37,7 +37,7 @@
 **Azure Firewall** is a managed *cloud-based network security service* that protects *Azure vNet* resources
 
 - Full stateful Firewall as a Service (FWaaS)
-- Can centrally *create*, *enforce*, and *log* application and network connectivity polices across subscripts and virtual networks
+- Can centrally *create*, *enforce*, and *log* application and network connectivity polices across subnets and virtual networks
 - Uses a *static public IP address* for vNet resources, allowing outside firewalls to identify traffic originating from your virtual network
 - Fully integrates with **Azure Monitor** for logging and analytics
 - Launches on its own vNet.  Other vNets pass through this central vNet
