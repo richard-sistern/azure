@@ -5,9 +5,9 @@
 **Public DNS** (internet facing)
 
 - Manage domains for internet accessible domains
-  - Pointing your domain to you website
+  - Pointing your domain to your website
   - Setting records to prove you own the domain
-  - Records to connect you domain to your email server
+  - Records to connect your domain to your email server
 
 **Private DNS** (internal facing)
 
@@ -24,7 +24,7 @@
 - **MX (Mail Exchange)** - records point to mail servers
 - **NS (Name Server)** - records identify multiple DNS serves for a domain.  Provides fault tolerance 
 - **PTR (Pointer)** - records point to a domain or host name but used for reverse DNS lookup
-- **SRV (Service)** - records are used to identify computers that host specific services, live locating a DC for AD 
+- **SRV (Service)** - records are used to identify computers that host specific services, like locating a DC for AD 
 - **TXT (Text)** - records are just text, used for documentation and verification 
 - **SOA (Start of Authority)** - records contain administrative details about a domain
 
