@@ -43,7 +43,7 @@ Azure CLI commands
 # pull logs
 az container logs
 
-# diagnostic informatonduring container startup
+# diagnostic information during container startup
 az container attach
 
 # interactive container run
