@@ -21,7 +21,7 @@ The following runtimes are supported on either **Windows** or **Linux**:
 - .NET/.NET Core
 - Java
 - Ruby
-- Note.js
+- Node.js
 - PHP
 - Python
 
