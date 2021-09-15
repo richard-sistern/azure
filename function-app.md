@@ -15,3 +15,5 @@ Connected to google.com:80, time taken: <1ms
 Connected to google.com:80, time taken: <1ms
 Complete: 4/4 successful attempts (100%). Average success time: 7.75ms
 ```
+
+On Windows hosts the SysInternals tools are preinstalled into `d:\devtools\sysinternals` which must be used with /accepteula to stop the popup EULA screen.
