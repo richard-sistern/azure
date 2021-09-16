@@ -16,4 +16,11 @@ Connected to google.com:80, time taken: <1ms
 Complete: 4/4 successful attempts (100%). Average success time: 7.75ms
 ```
 
+DNS lookups can be performed with:
+```shell
+nameresolver google.com
+
+nameresolver google.com 8.8.8.8
+```
+
 On Windows hosts the SysInternals tools are preinstalled into `d:\devtools\sysinternals` which must be used with /accepteula to stop the popup EULA screen.
